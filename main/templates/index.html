@@ -4,57 +4,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books</title>
+    <title>Todo List</title>
     <link rel="stylesheet" href="{% static 'styles/index.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/all.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}">
+    <!-- <link rel="stylesheet" href="../static/styles/index.css">
+    <link rel="stylesheet" href="../static/styles/checkbox.css"> -->
 </head>
 <body>
     <section>
         <div class="create_container">
-            <form action="{% url  'add-todo' %}" method="POST">
-                {% csrf_token %}
-                <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">Text</label>
-                    <div class="col-10">
-                        <input class="form-control" type="text" placeholder="Напиши сюда новую задачу" name="book_text">
-                    </div>
-                </div>
-                <button class="create_button">Добавить</button>
-            </form>
+            <input 
+                class="create_input"
+                type="text"
+                placeholder="Напиши сюда новую задачу"
+            >
+            <button class="create_button">Добавить</button>
         </div>
     
         <div class="todo_container">
 
-            {% for todo in todo_list %}
             <div class="todo_item">
                 <div class="todo_item_header">
                     <label class="checkbox_container">
                         <input type="checkbox" />
                         <span class="checkmark"></span>
                     </label>
-                    <h4>{{ todo.text }}</h4>
+                    <h4>Купить молоко</h4>
                 </div>
                 <div class="todo_item_footer">
-                    <p>{{ todo.created_at }}</p>
+                    <p>17.11.2020 <span>17:22</span></p>
                     <div class="action_buttons">
-                        <img src="{% static './icons/star-empty-icon-24.png' %}" />
-                        <img src="{% static '/icons/trash-can-icon-24.png' %}" />
+                        <img src="../static/icons/star-empty-icon-24.png" />
+                        <img src="../static/icons/trash-can-icon-24.png" />
                     </div>
                 </div>
                 
             </div>
-            {% endfor %}
+
+            <div class="todo_item marked">
+                <div class="todo_item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>Купить молоко</h4>
+                </div>
+                <div class="todo_item_footer">
+                    <p>17.11.2020 <span>17:22</span></p>
+                    <div class="action_buttons">
+                        <img src="../static/icons/star-full-icon-24.png" />
+                        <img src="../static/icons/trash-can-icon-24.png" />
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="todo_item done">
+                <div class="todo_item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>Купить молоко</h4>
+                </div>
+                <div class="todo_item_footer">
+                    <p>17.11.2020 <span>17:22</span></p>
+                    <div class="action_buttons">
+                        <img src="../static/icons/star-full-icon-24.png" />
+                        <img src="../static/icons/trash-can-icon-24.png" />
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="todo_item marked">
+                <div class="todo_item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>Купить молоко</h4>
+                </div>
+                <div class="todo_item_footer">
+                    <p>17.11.2020 <span>17:22</span></p>
+                    <div class="action_buttons">
+                        <img src="../static/icons/star-full-icon-24.png" />
+                        <img src="../static/icons/trash-can-icon-24.png" />
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="todo_item">
+                <div class="todo_item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>Купить молоко</h4>
+                </div>
+                <div class="todo_item_footer">
+                    <p>17.11.2020 <span>17:22</span></p>
+                    <div class="action_buttons">
+                        <img src="../static/icons/star-empty-icon-24.png" />
+                        <img src="../static/icons/trash-can-icon-24.png" />
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="todo_item done">
+                <div class="todo_item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>Купить молоко</h4>
+                </div>
+                <div class="todo_item_footer">
+                    <p>17.11.2020 <span>17:22</span></p>
+                    <div class="action_buttons">
+                        <img src="../static/icons/star-full-icon-24.png" />
+                        <img src="../static/icons/trash-can-icon-24.png" />
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </section>
 
 
-    {% for book in book_list %}
-
-    <h2>Title: {{ book.title }}</h4>
-    <h4>Price: {{ book.price }}</h4>
-    <p>Added date: {{ book.created_at }}</p>
-       
-    {% endfor %}
+    <script src="../static/script/script.js"></script>
 </body>
 </html>
