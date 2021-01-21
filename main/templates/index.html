@@ -1,11 +1,54 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books</title>
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/all.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
 </head>
 <body>
+    <section>
+        <div class="create_container">
+            <form action="{% url  'add-todo' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">Text</label>
+                    <div class="col-10">
+                        <input class="form-control" type="text" placeholder="Напиши сюда новую задачу" name="book_text">
+                    </div>
+                </div>
+                <button class="create_button">Добавить</button>
+            </form>
+        </div>
+    
+        <div class="todo_container">
+
+            {% for todo in todo_list %}
+            <div class="todo_item">
+                <div class="todo_item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>{{ todo.text }}</h4>
+                </div>
+                <div class="todo_item_footer">
+                    <p>{{ todo.created_at }}</p>
+                    <div class="action_buttons">
+                        <img src="{% static './icons/star-empty-icon-24.png' %}" />
+                        <img src="{% static '/icons/trash-can-icon-24.png' %}" />
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
     {% for book in book_list %}
 
     <h2>Title: {{ book.title }}</h4>

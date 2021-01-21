@@ -1,0 +1,32 @@
+table {
+    font-family: verdana;
+    color: black;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+table.inner {
+    border: 10px
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 6px 12px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+input[type=number] {
+    padding: 6px 12px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+input[type=submit],
+input[type=reset] {
+    width: 15%;
+    padding: 8px 12px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}

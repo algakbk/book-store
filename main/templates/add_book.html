@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+</head>
+<body>
+    <form action="{% url  'add-books' %}" method="POST">
+        {% csrf_token %}
+        <table align="left" cellpadding="10">
+            <!--------------------- Title------------------------------------------>
+            <tr>
+                <td>Title</td>
+                <td><input type="text" name="book_title" maxlength="100" placeholder="Book name"/>
+                </td>
+            </tr>
+            <!-------------------------- Subtitle ------------------------------------->
+            <tr>
+                <td>Subtitle</td>
+                <td><input type="text" name="subtitle" maxlength="100" /></td>
+            </tr>
+            <!------------------------- Description ---------------------------------->
+            <tr>
+                <td>Description<br /><br /><br /></td>
+                <td><textarea name="description" rows="10" cols="100"></textarea></td>
+            </tr>
+            <!-------------------------- Price ------------------------------------->
+            <tr>
+                <td>Price</td>
+                <td><input type="number" name="price" maxlength="4" placeholder="10" />
+                </td>
+            </tr>
+            <!-------------------------- Genre ------------------------------------->
+            <tr>
+                <td>Genre</td>
+                <td><input type="text" name="genre" maxlength="100" /></td>
+            </tr>
+            <!-------------------------- Author ------------------------------------->
+            <tr>
+                <td>Author Full Name</td>
+                <td><input type="text" name="author" maxlength="100" /></td>
+            </tr>
+            <!----- -------------------- Year-------------------------------------->
+            <tr>
+                <td>Year</td>
+                <td><input type="number" name="year" maxlength="4" placeholder="1990" />
+                </td>
+            </tr>
+            <!----------------------- Submit and Reset ------------------------------->
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="ADD">
+                    <!-- <input type="reset" value="Cancel"> -->
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
