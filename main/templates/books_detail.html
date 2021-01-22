@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Detail</title>
+</head>
+<body>
+    <section>
+        <div class="todo_container">
+
+        <div class="todo_item">
+            <div class="todo_item_header">
+                <div class="action_buttons">
+                    <img src="{% static './images/img2.jpg' %}" />
+                </div>
+                <div>
+                    <h4>{{ book_detail.title }}</h4>
+                </div>
+                
+            </div>
+            <div class="todo_item_footer">
+                <p>{{ book_detail.price }}</p>
+                <div class="action_buttons">
+                    {% if book_detail.is_favorite %}
+                        <a href="{% url 'unfav-book' book_detail.id %}"><img src="{% static './icons/star-full-icon-24.png' %}" /></a>
+                    {% else%}
+                        <a href="{% url 'fav-book' book_detail.id %}"><img src="{% static './icons/star-empty-icon-24.png' %}" /></a>
+                    {% endif %}
+                    <a href="{% url 'delete-book' book_detail.id %}"><img src="{% static '/icons/trash-can-icon-24.png' %}" /></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>

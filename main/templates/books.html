@@ -16,7 +16,7 @@
             <div class="todo_item">
                 <div class="todo_item_header">
                     <div class="action_buttons">
-                        <img src="{% static './images/img2.jpg' %}" />
+                        <a href="{% url 'book-detail' book.id %}"><img src="{% static './images/img2.jpg' %}" /></a>
                     </div>
                     <div>
                         <h4>{{ book.title }}</h4>

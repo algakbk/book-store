@@ -41,3 +41,7 @@ def unfav_book(request, id):
     book1.is_favorite = False
     book1.save()
     return redirect(book)
+
+def booksDetail(request, id):
+    book_detail = Book.objects.get(id=id)
+    return render(request, "books_detail.html", {"book_detail": book_detail})
